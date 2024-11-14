@@ -32,7 +32,6 @@ public class SecurityConfig {
 			req.requestMatchers(HttpMethod.POST, "/login").permitAll();
 			req.anyRequest().authenticated();
 		}).addFilterBefore(tokenAuthFilter, UsernamePasswordAuthenticationFilter.class);
-
 		return http.build();
 	}
 

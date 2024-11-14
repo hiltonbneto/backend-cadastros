@@ -1,14 +1,16 @@
 package com.teste.teste.categoria.entity;
 
-import org.hibernate.annotations.DynamicUpdate;
+import java.util.List;
 
 import com.teste.teste.categoria.dto.CategoriaDTO;
+import com.teste.teste.produto.entity.ProdutoEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +18,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name = "categoria")
-@DynamicUpdate
 public class CategoriaEntity {
 
 	@Id
@@ -27,6 +28,9 @@ public class CategoriaEntity {
 
 	@Column(name = "descricao", nullable = false)
 	private String descricao;
+	
+	@OneToMany(mappedBy = "categoria")
+  private List<ProdutoEntity> produtos;
 
 	public static CategoriaEntity fromCategoriaDTO(CategoriaDTO dto) {
 		CategoriaEntity entity = new CategoriaEntity();
