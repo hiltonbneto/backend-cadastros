@@ -34,7 +34,7 @@ public class CategoriaController {
 
 	@CrossOrigin
 	@PostMapping
-	public ResponseEntity<CategoriaDTO> salvar(@RequestBody CategoriaDTO categoria) {
+	public ResponseEntity<CategoriaDTO> salvar(@RequestBody CategoriaDTO categoria) throws ValidacaoException {
 		return ResponseEntity.ok(service.salvar(categoria));
 	}
 	
