@@ -1,5 +1,7 @@
 package com.teste.teste.login.entity;
 
+import com.teste.teste.login.dto.UsuarioInput;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -55,6 +57,14 @@ public class UsuarioEntity {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public static UsuarioEntity fromUsuarioInput(UsuarioInput input) {
+		UsuarioEntity entity = new UsuarioEntity();
+		entity.setLogin(input.login());
+		entity.setNome(input.nome());
+		entity.setSenha(input.senha());
+		return entity;
 	}
 
 }

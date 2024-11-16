@@ -29,7 +29,7 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf(csrf -> csrf.disable()).cors(Customizer.withDefaults()).sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS)).authorizeHttpRequests(req -> {
-			req.requestMatchers(HttpMethod.POST, "/login").permitAll();
+			req.requestMatchers(HttpMethod.POST, "/login", "/cadastrar-usuario").permitAll();
 			req.anyRequest().authenticated();
 		}).addFilterBefore(tokenAuthFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
