@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
-import com.teste.teste.login.dto.Usuario;
 import com.teste.teste.login.service.JwtID;
 import com.teste.teste.login.service.JwtProvider;
 

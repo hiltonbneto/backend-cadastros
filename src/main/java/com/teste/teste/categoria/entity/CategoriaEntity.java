@@ -12,11 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Entity(name = "categoria")
 public class CategoriaEntity {
 
@@ -28,9 +24,33 @@ public class CategoriaEntity {
 
 	@Column(name = "descricao", nullable = false)
 	private String descricao;
-	
+
 	@OneToMany(mappedBy = "categoria")
-  private List<ProdutoEntity> produtos;
+	private List<ProdutoEntity> produtos;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public List<ProdutoEntity> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<ProdutoEntity> produtos) {
+		this.produtos = produtos;
+	}
 
 	public static CategoriaEntity fromCategoriaDTO(CategoriaDTO dto) {
 		CategoriaEntity entity = new CategoriaEntity();

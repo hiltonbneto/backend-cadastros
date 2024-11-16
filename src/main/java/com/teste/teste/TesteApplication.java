@@ -13,10 +13,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TesteApplication {
 
 	public static void main(String[] args) {
+		criarBDCasoNaoExista();
+		SpringApplication.run(TesteApplication.class, args);
+	}
+
+	private static void criarBDCasoNaoExista() {
 		Connection connection = null;
 		Statement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/", "postgres", "murphy123");
+			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/", "postgres", "postgres");
 			statement = connection.createStatement();
 			statement.executeQuery("SELECT count(*) FROM pg_database WHERE datname = 'cadastros'");
 			ResultSet resultSet = statement.getResultSet();
@@ -40,7 +45,6 @@ public class TesteApplication {
 				e.printStackTrace();
 			}
 		}
-		SpringApplication.run(TesteApplication.class, args);
 	}
 
 }

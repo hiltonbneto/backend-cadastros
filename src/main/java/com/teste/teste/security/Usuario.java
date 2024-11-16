@@ -1,4 +1,4 @@
-package com.teste.teste.login.dto;
+package com.teste.teste.security;
 
 import java.util.Collection;
 import java.util.List;

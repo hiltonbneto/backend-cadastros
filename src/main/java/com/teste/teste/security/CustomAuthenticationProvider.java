@@ -6,8 +6,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 
-import com.teste.teste.login.dto.Usuario;
-
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 	

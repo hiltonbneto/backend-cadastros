@@ -11,11 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Entity(name = "produto")
 public class ProdutoEntity {
 
@@ -31,6 +27,30 @@ public class ProdutoEntity {
 	@ManyToOne
 	@JoinColumn(name = "categoria_id", nullable = false)
 	private CategoriaEntity categoria;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public CategoriaEntity getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaEntity categoria) {
+		this.categoria = categoria;
+	}
 
 	public static ProdutoEntity fromProdutoDTO(ProdutoDTO dto) {
 		ProdutoEntity entity = new ProdutoEntity();

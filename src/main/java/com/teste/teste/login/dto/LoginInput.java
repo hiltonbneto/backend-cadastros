@@ -1,5 +1,5 @@
 package com.teste.teste.login.dto;
 
-public record LoginInput(String usuario, String senha) {
+public record LoginInput(String login, String senha) {
 
 }

@@ -28,5 +28,11 @@ public class LoginController {
 	public ResponseEntity<LoginOutput> login(@RequestBody LoginInput input, @RequestHeader Map<String, String> headers) {
 		return ResponseEntity.ok(this.validarLogin.executar(input, headers));
 	}
+	
+	@CrossOrigin
+	@PostMapping(value = "/cadastrar-usuario", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<LoginOutput> cadatrarUsuario(@RequestBody LoginInput input, @RequestHeader Map<String, String> headers) {
+		return ResponseEntity.ok(this.validarLogin.executar(input, headers));
+	}
 
 }
