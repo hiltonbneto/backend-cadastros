@@ -32,8 +32,9 @@ public class CategoriaService {
 	public void remover(Long id) throws ValidacaoException {
 		Optional<CategoriaEntity> opEntity = repository.findById(id);
 		if (opEntity.isEmpty()) {
-			throw new ValidacaoException("ID %d não encontrado".formatted(id));
+			throw new ValidacaoException("Categoria ID %d não encontrado".formatted(id));
 		}
+		repository.delete(opEntity.get());
 	}
 
 }

@@ -39,7 +39,7 @@ public class CategoriaController {
 	}
 	
 	@CrossOrigin
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> remover(@PathVariable Long id) throws ValidacaoException {
 		service.remover(id);
 		return ResponseEntity.ok(true);
