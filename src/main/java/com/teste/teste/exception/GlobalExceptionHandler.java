@@ -14,4 +14,10 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(new ErrorDTO(HttpStatus.FORBIDDEN.value(), ex.getMensagem()), HttpStatus.FORBIDDEN);
 	}
 
+	@ExceptionHandler(ValidacaoException.class)
+	public ResponseEntity<ErrorDTO> handleCustomException(ValidacaoException ex, WebRequest request) {
+		return new ResponseEntity<>(new ErrorDTO(HttpStatus.NOT_ACCEPTABLE.value(), ex.getMensagem()),
+				HttpStatus.NOT_ACCEPTABLE);
+	}
+
 }
