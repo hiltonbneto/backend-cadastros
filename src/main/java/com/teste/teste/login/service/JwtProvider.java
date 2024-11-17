@@ -53,7 +53,7 @@ public class JwtProvider {
 				DecodedJWT decodedJWT = JWT.decode(tokenJWT);
 				subject = decodedJWT.getSubject();
 			} catch (Exception e) {
-				// Não exibe mensagem
+				e.printStackTrace();
 			}
 		}
 		return subject;
