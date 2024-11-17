@@ -46,7 +46,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 							usuario.getUsername(), null, usuario.getAuthorities());
 					SecurityContextHolder.getContext().setAuthentication(authentication);
 				} else {
-					throw new LoginException("Token invalido");
+					throw new LoginException("Sessão expirada");
 				}
 			}
 			filterChain.doFilter(request, response);
