@@ -45,7 +45,7 @@ public class CategoriaService {
 		}
 		List<ProdutoEntity> produtosCategoria = produtoRepository.findByCategoria(opEntity.get());
 		if (!produtosCategoria.isEmpty()) {
-			throw new ValidacaoException("Não é possível remover a categora ID &d, pois esta sendo utilizada nos produtos".formatted(id));
+			throw new ValidacaoException("Não é possível remover a categora ID %d, pois esta sendo utilizada nos produtos".formatted(id));
 		}
 		repository.delete(opEntity.get());
 	}
