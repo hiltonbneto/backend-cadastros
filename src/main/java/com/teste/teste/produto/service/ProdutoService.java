@@ -29,7 +29,7 @@ public class ProdutoService {
 			throw new ValidacaoException("Objeto inválido");
 		}
 		categoriaRepository.findById(produto.categoria().id()).orElseThrow(
-				() -> new ValidacaoException("Produto ID %d não encontrado".formatted(produto.categoria().id())));
+				() -> new ValidacaoException("Categoria ID %d não encontrado".formatted(produto.categoria().id())));
 		ProdutoEntity entity = ProdutoEntity.fromProdutoDTO(produto);
 		repository.save(entity);
 		return entity.toProdutoDTO();
